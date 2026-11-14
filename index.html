@@ -35,7 +35,7 @@
 <body class="text-slate-800 antialiased selection:bg-yellow-300 selection:text-blue-950">
 
   <!-- Top Announcement Bar -->
-  <div class="bg-blue-900 text-yellow-300 text-xs sm:text-sm py-2 px-4 text-center font-bold tracking-wide">
+  <div id="topAnnouncementBar" class="bg-blue-900 text-yellow-300 text-xs sm:text-sm py-2 px-4 text-center font-bold tracking-wide">
     🐥 أهلاً بكم في متجر كتاكيت! شحن مجاني للطلبات فوق 1000 ج.م • الطلب المباشر عبر واتساب: 01275542947
   </div>
 
@@ -120,7 +120,7 @@
             <span>تصفحي التشكيلة</span>
             <i data-lucide="arrow-down" class="w-5 h-5"></i>
           </a>
-          <a href="https://wa.me/201275542947?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%85%D8%AA%D8%AC%D8%B1%20%D9%83%D8%AA%D8%A7%D9%83%D9%8A%D8%AA%D8%8C%20%D8%AD%D8%A7%D8%A8%D8%A9%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%85%D9%88%D8%AF%D9%8A%D9%84%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-lg shadow-green-500/25 transition flex items-center gap-2">
+          <a href="https://wa.me/201275542947?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8b%20%D9%85%D8%AA%D8%AC%D8%B1%20%D9%83%D8%AA%D8%A7%D9%83%D9%8A%D8%AA%D8%8C%20%D8%AD%D8%A7%D8%A8%D8%A9%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%85%D9%88%D8%AF%D9%8A%D9%84%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-lg shadow-green-500/25 transition flex items-center gap-2">
             <i data-lucide="message-circle" class="w-5 h-5"></i>
             <span>تواصلي واتساب</span>
           </a>
@@ -142,12 +142,12 @@
         </div>
       </div>
 
-      <!-- Hero Visual Showcase -->
+      <!-- Hero Visual Showcase (Editable Images) -->
       <div class="grid grid-cols-2 gap-4">
         <div class="space-y-4">
           <div class="bg-yellow-400 p-3 rounded-3xl shadow-lg border-2 border-blue-900 transform -rotate-2">
-            <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80" alt="ملابس أولاد" class="w-full h-56 object-cover rounded-2xl">
-            <p class="text-center font-black text-blue-950 mt-2 text-sm">كولكشن الأولاد 👦</p>
+            <img id="heroImg1" src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80" alt="ملابس أولاد" class="w-full h-56 object-cover rounded-2xl">
+            <p id="heroCaption1" class="text-center font-black text-blue-950 mt-2 text-sm">كولكشن الأولاد 👦</p>
           </div>
           <div class="bg-blue-600 text-white p-5 rounded-3xl shadow-lg flex items-center justify-between">
             <div>
@@ -166,11 +166,25 @@
             <span class="text-3xl">🍼</span>
           </div>
           <div class="bg-sky-200 p-3 rounded-3xl shadow-lg border-2 border-blue-900 transform rotate-2">
-            <img src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=600&q=80" alt="ملابس بنات" class="w-full h-56 object-cover rounded-2xl">
-            <p class="text-center font-black text-blue-950 mt-2 text-sm">كولكشن البنات 👧</p>
+            <img id="heroImg2" src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=600&q=80" alt="ملابس بنات" class="w-full h-56 object-cover rounded-2xl">
+            <p id="heroCaption2" class="text-center font-black text-blue-950 mt-2 text-sm">كولكشن البنات 👧</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Active Offers Banner Section -->
+  <section id="storeOffersSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 hidden">
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🔥</span>
+        <h2 class="text-xl sm:text-2xl font-black text-blue-950">عروض وخصومات كتاكيت الحصرية</h2>
+      </div>
+      <button type="button" onclick="setCategory('offers')" class="text-xs sm:text-sm font-extrabold text-blue-700 hover:underline">عرض كل المنتجات المخفضة ←</button>
+    </div>
+    <div id="storeOffersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Rendered via JS -->
     </div>
   </section>
 
@@ -187,6 +201,7 @@
       <!-- Category Tabs -->
       <div id="categoryTabs" class="flex flex-wrap gap-2">
         <button type="button" onclick="setCategory('all')" data-cat="all" class="cat-btn active bg-blue-900 text-yellow-300 font-bold px-4 py-2 rounded-xl text-sm transition">الكل</button>
+        <button type="button" onclick="setCategory('offers')" data-cat="offers" class="cat-btn bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 font-bold px-4 py-2 rounded-xl text-sm transition">🔥 العروض</button>
         <button type="button" onclick="setCategory('boys')" data-cat="boys" class="cat-btn bg-white hover:bg-blue-50 text-slate-700 border border-slate-200 font-bold px-4 py-2 rounded-xl text-sm transition">أولاد 👦</button>
         <button type="button" onclick="setCategory('girls')" data-cat="girls" class="cat-btn bg-white hover:bg-blue-50 text-slate-700 border border-slate-200 font-bold px-4 py-2 rounded-xl text-sm transition">بنات 👧</button>
         <button type="button" onclick="setCategory('baby')" data-cat="baby" class="cat-btn bg-white hover:bg-blue-50 text-slate-700 border border-slate-200 font-bold px-4 py-2 rounded-xl text-sm transition">حديثي الولادة 🍼</button>
@@ -223,6 +238,7 @@
       <div>
         <h4 class="font-bold text-yellow-300 mb-3">أقسام المتجر</h4>
         <ul class="space-y-2 text-sm text-blue-200">
+          <li><button type="button" onclick="setCategory('offers')" class="hover:text-white">🔥 العروض والخصومات</button></li>
           <li><button type="button" onclick="setCategory('boys')" class="hover:text-white">ملابس أولاد</button></li>
           <li><button type="button" onclick="setCategory('girls')" class="hover:text-white">ملابس بنات</button></li>
           <li><button type="button" onclick="setCategory('baby')" class="hover:text-white">حديثي الولادة</button></li>
@@ -277,9 +293,23 @@
 
     <!-- Cart Footer & Checkout Form -->
     <div id="cartFooter" class="p-5 border-t border-slate-200 bg-slate-50 hidden">
+      <!-- Promo Code Input -->
+      <div class="mb-3 pb-3 border-b border-slate-200">
+        <label class="block text-xs font-bold text-slate-700 mb-1.5">كود الخصم (كوبون العروض)</label>
+        <div class="flex gap-2">
+          <input type="text" id="promoCodeInput" placeholder="أدخلي الكود هنا..." class="flex-1 bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold uppercase outline-none focus:border-blue-600">
+          <button type="button" onclick="applyPromoCode()" class="bg-blue-900 hover:bg-blue-800 text-yellow-300 font-bold text-xs px-4 py-2 rounded-xl transition">تطبيق</button>
+        </div>
+        <p id="promoAppliedMsg" class="text-xs font-bold text-green-600 mt-1.5 hidden"></p>
+      </div>
+
       <div class="flex items-center justify-between text-sm text-slate-600 mb-1">
         <span>المجموع الفرعي:</span>
         <span id="cartSubtotal" class="font-bold">0 ج.م</span>
+      </div>
+      <div id="cartDiscountRow" class="flex items-center justify-between text-sm text-green-600 mb-1 hidden">
+        <span>خصم الكوبون:</span>
+        <span id="cartDiscountAmount" class="font-bold">-0 ج.م</span>
       </div>
       <div class="flex items-center justify-between text-sm text-slate-600 mb-3">
         <span>الشحن:</span>
@@ -341,21 +371,21 @@
       <div id="adminLoginView" class="max-w-sm mx-auto text-center py-6">
         <div class="w-16 h-16 bg-yellow-400 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 border-2 border-blue-900">🔐</div>
         <h3 class="text-2xl font-black text-blue-950 mb-1">لوحة تحكم صاحب المتجر</h3>
-        <p class="text-xs text-slate-500 mb-5">أدخلي كلمة المرور لإدارة المنتجات والأسعار (الافتراضية: 1234)</p>
+        <p class="text-xs text-slate-500 mb-5">أدخلي كلمة المرور لإدارة المنتجات، العروض، وصور الواجهة (الافتراضية: 1234)</p>
         <input type="password" id="adminPassInput" onkeydown="if(event.key==='Enter') verifyAdmin()" placeholder="كلمة المرور" class="w-full border-2 border-slate-200 focus:border-blue-600 rounded-xl px-4 py-3 text-center font-bold mb-3 outline-none">
         <p id="adminPassError" class="text-red-500 text-xs font-bold mb-3 hidden">كلمة المرور غير صحيحة!</p>
         <div class="flex gap-2">
           <button type="button" onclick="verifyAdmin()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl">دخول</button>
-          <button type="button" onclick="closeAdminModal()" class="px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl">إلغاء</button>
+          <button type="button" onclick="closeAdminModal()" class="px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl">إلغاء`</button>
         </div>
       </div>
 
       <!-- Admin Dashboard Content -->
       <div id="adminDashboardView" class="hidden">
-        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 mb-6 border-b border-slate-200">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 mb-5 border-b border-slate-200">
           <div>
-            <h3 class="text-2xl font-black text-blue-950">إدارة منتجات متجر كتاكيت 🐥</h3>
-            <p class="text-xs text-slate-500">أضيفي منتجات جديدة، احذفي أو عدّلي الأسعار، ثم حمّلي النسخة المحدثة</p>
+            <h3 class="text-2xl font-black text-blue-950">لوحة تحكم متجر كتاكيت 🐥</h3>
+            <p class="text-xs text-slate-500">إدارة المنتجات، العروض، وصور الواجهة الرئيسية</p>
           </div>
           <div class="flex flex-wrap items-center gap-2">
             <button type="button" onclick="exportUpdatedHTML()" class="text-xs bg-green-600 hover:bg-green-700 text-white font-bold px-3.5 py-2.5 rounded-xl shadow-sm flex items-center gap-1.5">
@@ -368,75 +398,233 @@
           </div>
         </div>
 
-        <!-- Add / Edit Product Form -->
-        <form id="productForm" onsubmit="saveProduct(event)" class="bg-sky-50/70 p-5 rounded-2xl border border-sky-200 mb-8">
-          <h4 id="formTitle" class="font-black text-blue-900 mb-4 flex items-center gap-2">
-            <span>➕ إضافة منتج جديد</span>
-          </h4>
-          <input type="hidden" id="editProductId">
+        <!-- Admin Navigation Tabs -->
+        <div class="flex flex-wrap gap-2 mb-6 bg-slate-100 p-1.5 rounded-2xl">
+          <button type="button" id="tabBtnProducts" onclick="switchAdminTab('products')" class="flex-1 min-w-[120px] py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm bg-blue-900 text-yellow-300 shadow-xs transition">
+            👕 المنتجات (<span id="tabProdCount">0</span>)
+          </button>
+          <button type="button" id="tabBtnOffers" onclick="switchAdminTab('offers')" class="flex-1 min-w-[120px] py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm text-slate-600 hover:text-blue-900 transition">
+            🔥 العروض (<span id="tabOfferCount">0</span>)
+          </button>
+          <button type="button" id="tabBtnHero" onclick="switchAdminTab('hero')" class="flex-1 min-w-[120px] py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm text-slate-600 hover:text-blue-900 transition">
+            🖼️ صور الواجهة
+          </button>
+        </div>
+
+        <!-- TAB 1: PRODUCTS MANAGEMENT -->
+        <div id="adminTabProducts">
+          <!-- Add / Edit Product Form -->
+          <form id="productForm" onsubmit="saveProduct(event)" class="bg-sky-50/70 p-5 rounded-2xl border border-sky-200 mb-8">
+            <h4 id="formTitle" class="font-black text-blue-900 mb-4 flex items-center gap-2">
+              <span>➕ إضافة منتج جديد</span>
+            </h4>
+            <input type="hidden" id="editProductId">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">اسم المنتج *</label>
+                <input type="text" id="prodName" required placeholder="مثال: طقم صيفي قطن 3 قطع" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">السعر (ج.م) *</label>
+                <input type="number" id="prodPrice" required min="1" placeholder="350" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">السعر قبل الخصم (اختياري)</label>
+                <input type="number" id="prodOldPrice" min="1" placeholder="420" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">القسم *</label>
+                <select id="prodCategory" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+                  <option value="boys">أولاد 👦</option>
+                  <option value="girls">بنات 👧</option>
+                  <option value="baby">حديثي الولادة 🍼</option>
+                  <option value="shoes">أحذية وإكسسوارات 👟</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">المقاسات المتاحة (افصلي بفاصلة)</label>
+                <input type="text" id="prodSizes" required value="2 سنوات, 4 سنوات, 6 سنوات, 8 سنوات" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">حالة التوفر</label>
+                <select id="prodStock" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+                  <option value="true">متوفر ✅</option>
+                  <option value="false">نفدت الكمية ❌</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">رابط صورة المنتج (URL)</label>
+                <input type="url" id="prodImageUrl" placeholder="https://..." class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">أو ارفعي صورة من جهازك (يتم ضغطها تلقائياً)</label>
+                <input type="file" id="prodImageFile" accept="image/*" onchange="handleImageUpload(event)" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs">
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 mt-5">
+              <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm shadow-sm">حفظ التغييرات</button>
+              <button type="button" id="cancelEditBtn" onclick="resetProductForm()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-4 py-2.5 rounded-xl text-sm">إلغاء التعديل</button>
+            </div>
+          </form>
+
+          <!-- Existing Products List -->
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="font-black text-slate-800">المنتجات الحالية (<span id="adminProdCount">0</span>)</h4>
+            <button type="button" id="deleteAllBtn" onclick="handleDeleteAll()" class="text-xs bg-red-50 hover:bg-red-100 text-red-700 font-bold px-3 py-1.5 rounded-xl border border-red-200 transition">
+              🗑️ حذف كل المنتجات
+            </button>
+          </div>
+          <div id="adminProductsList" class="space-y-3">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- TAB 2: OFFERS & PROMOS MANAGEMENT -->
+        <div id="adminTabOffers" class="hidden space-y-6">
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">اسم المنتج *</label>
-              <input type="text" id="prodName" required placeholder="مثال: طقم صيفي قطن 3 قطع" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+          <!-- Top Announcement Bar Editor -->
+          <div class="bg-blue-50/80 p-5 rounded-2xl border border-blue-200">
+            <h4 class="font-black text-blue-950 mb-2 flex items-center gap-2">
+              <span>📢 شريط الإعلانات العلوي في المتجر</span>
+            </h4>
+            <p class="text-xs text-slate-500 mb-3">يظهر هذا النص في أعلى صفحة المتجر لجميع الزوار.</p>
+            <div class="flex flex-col sm:flex-row gap-2">
+              <input type="text" id="announcementInput" class="flex-1 bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-bold outline-none focus:border-blue-600">
+              <button type="button" onclick="saveAnnouncementText()" class="bg-blue-900 hover:bg-blue-800 text-yellow-300 font-bold px-5 py-2.5 rounded-xl text-sm shrink-0">تحديث الشريط</button>
             </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">السعر (ج.م) *</label>
-              <input type="number" id="prodPrice" required min="1" placeholder="350" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+          </div>
+
+          <!-- Add New Offer Card / Coupon -->
+          <form id="offerForm" onsubmit="saveOffer(event)" class="bg-amber-50/70 p-5 rounded-2xl border border-amber-200">
+            <h4 id="offerFormTitle" class="font-black text-amber-950 mb-4 flex items-center gap-2">
+              <span>🎁 إضافة عرض ترويجي أو كوبون خصم جديد</span>
+            </h4>
+            <input type="hidden" id="editOfferId">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">عنوان العرض *</label>
+                <input type="text" id="offerTitle" required placeholder="مثال: خصم العيد 20%" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">وصف العرض *</label>
+                <input type="text" id="offerDesc" required placeholder="خصم على جميع أطقم الخروج" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">كود الخصم (اختياري)</label>
+                <input type="text" id="offerCode" placeholder="KIDS20" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold uppercase outline-none focus:border-blue-600">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">نسبة الخصم % (للكوبون)</label>
+                <input type="number" id="offerPercent" min="0" max="90" value="15" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+              </div>
             </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">السعر قبل الخصم (اختياري)</label>
-              <input type="number" id="prodOldPrice" min="1" placeholder="420" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+
+            <div class="flex flex-wrap items-center justify-between gap-4 mt-4">
+              <label class="inline-flex items-center gap-2 text-xs font-bold text-slate-700 cursor-pointer">
+                <input type="checkbox" id="offerActive" checked class="w-4 h-4 rounded text-blue-600">
+                <span>تفعيل العرض وإظهاره في المتجر</span>
+              </label>
+
+              <div class="flex items-center gap-2">
+                <button type="submit" class="bg-amber-500 hover:bg-amber-600 text-blue-950 font-black px-6 py-2.5 rounded-xl text-sm shadow-sm">حفظ العرض</button>
+                <button type="button" id="cancelOfferEditBtn" onclick="resetOfferForm()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-4 py-2.5 rounded-xl text-sm">إلغاء</button>
+              </div>
             </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">القسم *</label>
-              <select id="prodCategory" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+          </form>
+
+          <!-- Active Offers List -->
+          <div>
+            <h4 class="font-black text-slate-800 mb-3">العروض والكوبونات المسجلة (<span id="adminOfferCount">0</span>)</h4>
+            <div id="adminOffersList" class="space-y-3">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Quick Bulk Discount Tool -->
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+            <h4 class="font-black text-slate-800 mb-1">⚡ تطبيق خصم سريع على قسم كامل</h4>
+            <p class="text-xs text-slate-500 mb-4">طبّقي نسبة خصم تلقائية على أسعار جميع منتجات قسم معين بضغطة زر.</p>
+            <div class="flex flex-wrap items-center gap-3">
+              <select id="bulkDiscountCat" class="bg-white border border-slate-300 rounded-xl px-3.5 py-2 text-sm font-bold outline-none">
+                <option value="all">جميع الأقسام</option>
                 <option value="boys">أولاد 👦</option>
                 <option value="girls">بنات 👧</option>
                 <option value="baby">حديثي الولادة 🍼</option>
                 <option value="shoes">أحذية وإكسسوارات 👟</option>
               </select>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">المقاسات المتاحة (افصلي بفاصلة)</label>
-              <input type="text" id="prodSizes" required value="2 سنوات, 4 سنوات, 6 سنوات, 8 سنوات" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">حالة التوفر</label>
-              <select id="prodStock" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
-                <option value="true">متوفر ✅</option>
-                <option value="false">نفدت الكمية ❌</option>
-              </select>
+              <div class="flex items-center gap-1.5">
+                <input type="number" id="bulkDiscountPct" min="5" max="80" value="15" class="w-20 bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-center outline-none">
+                <span class="text-sm font-bold text-slate-600">%</span>
+              </div>
+              <button type="button" onclick="applyBulkDiscount()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-xl text-sm">تطبيق الخصم</button>
+              <button type="button" onclick="clearAllDiscounts()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-4 py-2 rounded-xl text-sm">إلغاء كل الخصومات</button>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">رابط صورة المنتج (URL)</label>
-              <input type="url" id="prodImageUrl" placeholder="https://..." class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">أو ارفعي صورة من جهازك (يتم ضغطها تلقائياً)</label>
-              <input type="file" id="prodImageFile" accept="image/*" onchange="handleImageUpload(event)" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs">
-            </div>
-          </div>
-
-          <div class="flex items-center gap-3 mt-5">
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm shadow-sm">حفظ التغييرات</button>
-            <button type="button" id="cancelEditBtn" onclick="resetProductForm()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-4 py-2.5 rounded-xl text-sm">إلغاء التعديل</button>
-          </div>
-        </form>
-
-        <!-- Existing Products List -->
-        <div class="flex items-center justify-between mb-3">
-          <h4 class="font-black text-slate-800">المنتجات الحالية (<span id="adminProdCount">0</span>)</h4>
-          <button type="button" id="deleteAllBtn" onclick="handleDeleteAll()" class="text-xs bg-red-50 hover:bg-red-100 text-red-700 font-bold px-3 py-1.5 rounded-xl border border-red-200 transition">
-            🗑️ حذف كل المنتجات
-          </button>
         </div>
-        <div id="adminProductsList" class="space-y-3">
-          <!-- Rendered via JS -->
+
+        <!-- TAB 3: HERO IMAGES MANAGEMENT -->
+        <div id="adminTabHero" class="hidden space-y-6">
+          <div class="bg-sky-50/80 p-5 rounded-2xl border border-sky-200">
+            <h4 class="font-black text-blue-950 mb-2 flex items-center gap-2">
+              <span>🖼️ إدارة صور الواجهة الرئيسية (Hero Section)</span>
+            </h4>
+            <p class="text-xs text-slate-500 mb-5">تغيير صور كولكشن الأولاد والبنات التي تظهر في الواجهة الرئيسية للمتجر.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Image 1 -->
+              <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3">
+                <h5 class="font-bold text-sm text-slate-800">صورة كولكشن الأولاد (يسار الواجهة)</h5>
+                <div class="h-36 bg-slate-100 rounded-xl overflow-hidden">
+                  <img id="previewHeroImg1" src="" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">رابط الصورة (URL)</label>
+                  <input type="url" id="heroUrl1" placeholder="https://..." class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs outline-none focus:border-blue-600">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">أو ارفعي صورة من جهازك</label>
+                  <input type="file" id="heroFile1" accept="image/*" onchange="handleHeroUpload(1, event)" class="w-full border border-slate-300 rounded-xl px-3 py-1.5 text-xs">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">العنوان تحت الصورة</label>
+                  <input type="text" id="heroCaptionInput1" value="كولكشن الأولاد 👦" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs outline-none focus:border-blue-600">
+                </div>
+              </div>
+
+              <!-- Image 2 -->
+              <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3">
+                <h5 class="font-bold text-sm text-slate-800">صورة كولكشن البنات (يمين الواجهة)</h5>
+                <div class="h-36 bg-slate-100 rounded-xl overflow-hidden">
+                  <img id="previewHeroImg2" src="" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">رابط الصورة (URL)</label>
+                  <input type="url" id="heroUrl2" placeholder="https://..." class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs outline-none focus:border-blue-600">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">أو ارفعي صورة من جهازك</label>
+                  <input type="file" id="heroFile2" accept="image/*" onchange="handleHeroUpload(2, event)" class="w-full border border-slate-300 rounded-xl px-3 py-1.5 text-xs">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">العنوان تحت الصورة</label>
+                  <input type="text" id="heroCaptionInput2" value="كولكشن البنات 👧" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs outline-none focus:border-blue-600">
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <button type="button" onclick="saveHeroImages()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl text-sm shadow-sm">حفظ وتطبيق صور الواجهة</button>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -448,7 +636,7 @@
   </div>
 
   <script>
-    // EMBEDDED_PRODUCTS_START
+    // EMBEDDED_DATA_START
     const DEFAULT_PRODUCTS = [
       {
         id: 'p1',
@@ -492,7 +680,7 @@
       },
       {
         id: 'p5',
-        name: 'طقم بناتي أنيق بلوزة وجيبة',
+        name: 'طقم بناتي أنيق بلوزة والجيبة',
         price: 375,
         oldPrice: null,
         category: 'girls',
@@ -511,7 +699,35 @@
         image: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=600&q=80'
       }
     ];
-    // EMBEDDED_PRODUCTS_END
+
+    const DEFAULT_OFFERS = [
+      {
+        id: 'off1',
+        title: 'عرض الترحيب من كتاكيت 🐥',
+        desc: 'احصلي على خصم 15% إضافي على إجمالي سلة مشترياتك عند استخدام الكود',
+        code: 'KATAKEET15',
+        percent: 15,
+        active: true
+      },
+      {
+        id: 'off2',
+        title: 'شحن مجاني للطلبات الكبيرة 🚚',
+        desc: 'توصيل مجاني لأي مكان عند الشراء بقيمة 1000 ج.م أو أكثر',
+        code: '',
+        percent: 0,
+        active: true
+      }
+    ];
+
+    const DEFAULT_ANNOUNCEMENT = '🐥 أهلاً بكم في متجر كتاكيت! شحن مجاني للطلبات فوق 1000 ج.م • الطلب المباشر عبر واتساب: 01275542947';
+
+    const DEFAULT_HERO_DATA = {
+      img1: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80',
+      caption1: 'كولكشن الأولاد 👦',
+      img2: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=600&q=80',
+      caption2: 'كولكشن البنات 👧'
+    };
+    // EMBEDDED_DATA_END
 
     function loadProducts() {
       try {
@@ -520,10 +736,38 @@
           const parsed = JSON.parse(saved);
           if (Array.isArray(parsed)) return parsed;
         }
-      } catch (e) {
-        console.error('Storage read error:', e);
-      }
+      } catch (e) {}
       return JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+    }
+
+    function loadOffers() {
+      try {
+        const saved = localStorage.getItem('katakeet_offers_v1');
+        if (saved !== null) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch (e) {}
+      return JSON.parse(JSON.stringify(DEFAULT_OFFERS));
+    }
+
+    function loadAnnouncement() {
+      try {
+        const saved = localStorage.getItem('katakeet_announcement_v1');
+        if (saved !== null) return saved;
+      } catch (e) {}
+      return DEFAULT_ANNOUNCEMENT;
+    }
+
+    function loadHeroData() {
+      try {
+        const saved = localStorage.getItem('katakeet_hero_v1');
+        if (saved !== null) {
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed.img1) return parsed;
+        }
+      } catch (e) {}
+      return JSON.parse(JSON.stringify(DEFAULT_HERO_DATA));
     }
 
     function loadCart() {
@@ -536,13 +780,20 @@
     }
 
     let products = loadProducts();
+    let offers = loadOffers();
+    let announcementText = loadAnnouncement();
+    let heroData = loadHeroData();
     let cart = loadCart();
     let activeCategory = 'all';
     let searchQuery = '';
     let selectedSizes = {};
     let uploadedBase64Image = '';
+    let heroTempBase64_1 = '';
+    let heroTempBase64_2 = '';
     let pendingDeleteId = null;
     let pendingDeleteAll = false;
+    let pendingDeleteOfferId = null;
+    let appliedPromo = null;
 
     const CATEGORY_NAMES = {
       boys: 'أولاد 👦',
@@ -561,6 +812,18 @@
       }
     }
 
+    function saveOffersToStorage() {
+      try {
+        localStorage.setItem('katakeet_offers_v1', JSON.stringify(offers));
+      } catch (e) {}
+    }
+
+    function saveHeroToStorage() {
+      try {
+        localStorage.setItem('katakeet_hero_v1', JSON.stringify(heroData));
+      } catch (e) {}
+    }
+
     function saveCartToStorage() {
       try {
         localStorage.setItem('katakeet_cart_v2', JSON.stringify(cart));
@@ -577,12 +840,67 @@
       }, 3000);
     }
 
+    // Render Storefront Hero & Offers
+    function renderStoreUI() {
+      const bar = document.getElementById('topAnnouncementBar');
+      if (bar) bar.textContent = announcementText;
+
+      const img1 = document.getElementById('heroImg1');
+      const cap1 = document.getElementById('heroCaption1');
+      const img2 = document.getElementById('heroImg2');
+      const cap2 = document.getElementById('heroCaption2');
+
+      if (img1) img1.src = heroData.img1;
+      if (cap1) cap1.textContent = heroData.caption1;
+      if (img2) img2.src = heroData.img2;
+      if (cap2) cap2.textContent = heroData.caption2;
+
+      const section = document.getElementById('storeOffersSection');
+      const grid = document.getElementById('storeOffersGrid');
+      const activeOffers = offers.filter(o => o.active);
+
+      if (activeOffers.length === 0) {
+        section.classList.add('hidden');
+        return;
+      }
+
+      section.classList.remove('hidden');
+      grid.innerHTML = activeOffers.map(o => `
+        <div class="bg-gradient-to-l from-yellow-300 via-amber-200 to-sky-100 border-2 border-blue-900 rounded-2xl p-4 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <h3 class="font-black text-blue-950 text-base">${o.title}</h3>
+              ${o.percent > 0 ? `<span class="bg-blue-900 text-yellow-300 text-xs font-black px-2.5 py-0.5 rounded-full">خصم ${o.percent}%</span>` : ''}
+            </div>
+            <p class="text-xs font-bold text-slate-700 leading-relaxed">${o.desc}</p>
+          </div>
+          ${o.code ? `
+            <div class="mt-3 pt-2.5 border-t border-blue-900/15 flex items-center justify-between">
+              <span class="text-xs font-bold text-blue-950">كود الخصم: <strong class="bg-white px-2 py-0.5 rounded-md border border-blue-900 tracking-wider">${o.code}</strong></span>
+              <button type="button" onclick="copyPromoCode('${o.code}')" class="text-xs bg-blue-900 hover:bg-blue-800 text-yellow-300 font-bold px-3 py-1 rounded-lg transition">نسخ الكود</button>
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+
+    function copyPromoCode(code) {
+      navigator.clipboard.writeText(code);
+      const input = document.getElementById('promoCodeInput');
+      if (input) input.value = code;
+      showToast(`تم نسخ الكود (${code})! استخدميه في السلة`, '🎟️');
+    }
+
     function renderProducts() {
       const grid = document.getElementById('productsGrid');
       const emptyState = document.getElementById('emptyState');
 
       const filtered = products.filter(p => {
-        const matchesCat = activeCategory === 'all' || p.category === activeCategory;
+        const matchesCat = activeCategory === 'all'
+          ? true
+          : activeCategory === 'offers'
+            ? (p.oldPrice && p.oldPrice > p.price)
+            : p.category === activeCategory;
         const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesCat && matchesSearch;
       });
@@ -597,7 +915,9 @@
       grid.innerHTML = filtered.map(product => {
         const sizesList = Array.isArray(product.sizes) && product.sizes.length ? product.sizes : ['مقاس موحد'];
         const currentSize = selectedSizes[product.id] || sizesList[0];
-        const discount = product.oldPrice ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
+        const discount = product.oldPrice && product.oldPrice > product.price
+          ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
+          : 0;
 
         return `
           <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group">
@@ -623,7 +943,7 @@
               
               <div class="flex items-baseline gap-2 mb-3">
                 <span class="text-xl font-black text-blue-700">${product.price} ج.م</span>
-                ${product.oldPrice ? `<span class="text-xs text-slate-400 line-through font-bold">${product.oldPrice} ج.م</span>` : ''}
+                ${product.oldPrice && product.oldPrice > product.price ? `<span class="text-xs text-slate-400 line-through font-bold">${product.oldPrice} ج.م</span>` : ''}
               </div>
 
               <div class="mb-4">
@@ -668,11 +988,16 @@
       document.querySelectorAll('.cat-btn').forEach(btn => {
         if (btn.dataset.cat === cat) {
           btn.className = 'cat-btn active bg-blue-900 text-yellow-300 font-bold px-4 py-2 rounded-xl text-sm transition';
+        } else if (btn.dataset.cat === 'offers') {
+          btn.className = 'cat-btn bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 font-bold px-4 py-2 rounded-xl text-sm transition';
         } else {
           btn.className = 'cat-btn bg-white hover:bg-blue-50 text-slate-700 border border-slate-200 font-bold px-4 py-2 rounded-xl text-sm transition';
         }
       });
       renderProducts();
+      if (cat === 'offers') {
+        document.getElementById('productsSection').scrollIntoView({ behavior: 'smooth' });
+      }
     }
 
     function handleSearch(val) {
@@ -729,6 +1054,28 @@
       updateCartUI();
     }
 
+    function applyPromoCode() {
+      const codeInput = document.getElementById('promoCodeInput').value.trim().toUpperCase();
+      const msgEl = document.getElementById('promoAppliedMsg');
+      if (!codeInput) return;
+
+      const matched = offers.find(o => o.active && o.code && o.code.toUpperCase() === codeInput && o.percent > 0);
+      if (matched) {
+        appliedPromo = matched;
+        msgEl.textContent = `✅ تم تفعيل خصم ${matched.percent}% (${matched.code})`;
+        msgEl.className = 'text-xs font-bold text-green-600 mt-1.5';
+        msgEl.classList.remove('hidden');
+        updateCartUI();
+        showToast(`تم تطبيق كوبون الخصم ${matched.percent}%!`, '🎉');
+      } else {
+        appliedPromo = null;
+        msgEl.textContent = '❌ كود الخصم غير صحيح أو منتهي الصلاحية';
+        msgEl.className = 'text-xs font-bold text-red-600 mt-1.5';
+        msgEl.classList.remove('hidden');
+        updateCartUI();
+      }
+    }
+
     function updateCartUI() {
       const badge = document.getElementById('cartCountBadge');
       const container = document.getElementById('cartItemsContainer');
@@ -752,14 +1099,23 @@
 
       footer.classList.remove('hidden');
       const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      const shipping = subtotal >= 1000 ? 0 : 50;
-      const total = subtotal + shipping;
+      const discountAmount = appliedPromo ? Math.round((subtotal * appliedPromo.percent) / 100) : 0;
+      const afterDiscount = subtotal - discountAmount;
+      const shipping = afterDiscount >= 1000 ? 0 : 50;
+      const total = afterDiscount + shipping;
 
       document.getElementById('cartSubtotal').textContent = `${subtotal} ج.م`;
+      const discountRow = document.getElementById('cartDiscountRow');
+      if (discountAmount > 0) {
+        discountRow.classList.remove('hidden');
+        document.getElementById('cartDiscountAmount').textContent = `-${discountAmount} ج.م`;
+      } else {
+        discountRow.classList.add('hidden');
+      }
       document.getElementById('cartShipping').textContent = shipping === 0 ? 'مجاني 🎉' : `${shipping} ج.م`;
       document.getElementById('cartTotal').textContent = `${total} ج.م`;
 
-      updateShippingBar(subtotal);
+      updateShippingBar(afterDiscount);
 
       container.innerHTML = cart.map((item, idx) => `
         <div class="flex gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-200">
@@ -826,8 +1182,10 @@
       const notes = document.getElementById('custNotes').value.trim();
 
       const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-      const shipping = subtotal >= 1000 ? 0 : 50;
-      const total = subtotal + shipping;
+      const discountAmount = appliedPromo ? Math.round((subtotal * appliedPromo.percent) / 100) : 0;
+      const afterDiscount = subtotal - discountAmount;
+      const shipping = afterDiscount >= 1000 ? 0 : 50;
+      const total = afterDiscount + shipping;
 
       let lines = [
         '🐥 *طلب جديد من متجر كتاكيت (Katakeet)*',
@@ -843,7 +1201,10 @@
         lines.push(`${i + 1}. ${item.name} (مقاس: ${item.size}) × ${item.qty} = ${item.price * item.qty} ج.م`);
       });
 
-      lines.push('', `🚚 *الشحن:* ${shipping === 0 ? 'مجاني' : shipping + ' ج.م'}`);
+      if (discountAmount > 0 && appliedPromo) {
+        lines.push('', `🎟️ *كوبون الخصم (${appliedPromo.code}):* -${discountAmount} ج.م`);
+      }
+      lines.push(`🚚 *الشحن:* ${shipping === 0 ? 'مجاني' : shipping + ' ج.م'}`);
       lines.push(`💰 *الإجمالي المطلوب:* ${total} ج.م`);
 
       const message = lines.join('\n');
@@ -872,6 +1233,8 @@
       modal.classList.add('flex');
       if (!document.getElementById('adminDashboardView').classList.contains('hidden')) {
         renderAdminProducts();
+        renderAdminOffers();
+        loadHeroInputs();
       }
     }
 
@@ -887,10 +1250,107 @@
         document.getElementById('adminLoginView').classList.add('hidden');
         document.getElementById('adminDashboardView').classList.remove('hidden');
         document.getElementById('adminPassError').classList.add('hidden');
+        document.getElementById('announcementInput').value = announcementText;
         renderAdminProducts();
+        renderAdminOffers();
+        loadHeroInputs();
       } else {
         document.getElementById('adminPassError').classList.remove('hidden');
       }
+    }
+
+    function switchAdminTab(tab) {
+      const prodView = document.getElementById('adminTabProducts');
+      const offerView = document.getElementById('adminTabOffers');
+      const heroView = document.getElementById('adminTabHero');
+
+      const prodBtn = document.getElementById('tabBtnProducts');
+      const offerBtn = document.getElementById('tabBtnOffers');
+      const heroBtn = document.getElementById('tabBtnHero');
+
+      prodView.classList.add('hidden');
+      offerView.classList.add('hidden');
+      heroView.classList.add('hidden');
+
+      prodBtn.className = 'flex-1 min-w-[120px] py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm text-slate-600 hover:text-blue-900 transition';
+      offerBtn.className = 'flex-1 min-w-[120px] py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm text-slate-600 hover:text-blue-900 transition';
+      heroBtn.className = 'flex-1 min-w-[120px] py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm text-slate-600 hover:text-blue-900 transition';
+
+      if (tab === 'products') {
+        prodView.classList.remove('hidden');
+        prodBtn.className = 'flex-1 min-w-[120px] py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm bg-blue-900 text-yellow-300 shadow-xs transition';
+        renderAdminProducts();
+      } else if (tab === 'offers') {
+        offerView.classList.remove('hidden');
+        offerBtn.className = 'flex-1 min-w-[120px] py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm bg-blue-900 text-yellow-300 shadow-xs transition';
+        document.getElementById('announcementInput').value = announcementText;
+        renderAdminOffers();
+      } else {
+        heroView.classList.remove('hidden');
+        heroBtn.className = 'flex-1 min-w-[120px] py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm bg-blue-900 text-yellow-300 shadow-xs transition';
+        loadHeroInputs();
+      }
+    }
+
+    function loadHeroInputs() {
+      document.getElementById('heroUrl1').value = heroData.img1 && !heroData.img1.startsWith('data:') ? heroData.img1 : '';
+      document.getElementById('previewHeroImg1').src = heroData.img1;
+      document.getElementById('heroCaptionInput1').value = heroData.caption1;
+      heroTempBase64_1 = heroData.img1 && heroData.img1.startsWith('data:') ? heroData.img1 : '';
+
+      document.getElementById('heroUrl2').value = heroData.img2 && !heroData.img2.startsWith('data:') ? heroData.img2 : '';
+      document.getElementById('previewHeroImg2').src = heroData.img2;
+      document.getElementById('heroCaptionInput2').value = heroData.caption2;
+      heroTempBase64_2 = heroData.img2 && heroData.img2.startsWith('data:') ? heroData.img2 : '';
+    }
+
+    function handleHeroUpload(slot, e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          const maxW = 600;
+          const scale = Math.min(1, maxW / img.width);
+          canvas.width = img.width * scale;
+          canvas.height = img.height * scale;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          const base64 = canvas.toDataURL('image/jpeg', 0.8);
+
+          if (slot === 1) {
+            heroTempBase64_1 = base64;
+            document.getElementById('previewHeroImg1').src = base64;
+          } else {
+            heroTempBase64_2 = base64;
+            document.getElementById('previewHeroImg2').src = base64;
+          }
+          showToast('تم رفع الصورة وضغطها بنجاح', '🖼️');
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function saveHeroImages() {
+      const url1 = document.getElementById('heroUrl1').value.trim();
+      const url2 = document.getElementById('heroUrl2').value.trim();
+      const cap1 = document.getElementById('heroCaptionInput1').value.trim() || 'كولكشن الأولاد 👦';
+      const cap2 = document.getElementById('heroCaptionInput2').value.trim() || 'كولكشن البنات 👧';
+
+      if (url1) heroTempBase64_1 = url1;
+      if (url2) heroTempBase64_2 = url2;
+
+      if (heroTempBase64_1) heroData.img1 = heroTempBase64_1;
+      if (heroTempBase64_2) heroData.img2 = heroTempBase64_2;
+      heroData.caption1 = cap1;
+      heroData.caption2 = cap2;
+
+      saveHeroToStorage();
+      renderStoreUI();
+      showToast('تم تحديث صور الواجهة الرئيسية بنجاح ✅', '🖼️');
     }
 
     function handleImageUpload(e) {
@@ -990,7 +1450,6 @@
       document.getElementById('productForm').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Two-step inline confirmation for delete (bypasses blocked window.confirm)
     function handleDeleteClick(id) {
       if (pendingDeleteId === id) {
         products = products.filter(p => String(p.id) !== String(id));
@@ -1046,14 +1505,26 @@
 
     function resetDefaultProducts() {
       products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+      offers = JSON.parse(JSON.stringify(DEFAULT_OFFERS));
+      announcementText = DEFAULT_ANNOUNCEMENT;
+      heroData = JSON.parse(JSON.stringify(DEFAULT_HERO_DATA));
+      
       saveProductsToStorage();
+      saveOffersToStorage();
+      saveHeroToStorage();
+      localStorage.setItem('katakeet_announcement_v1', announcementText);
+
+      renderStoreUI();
       renderProducts();
       renderAdminProducts();
-      showToast('تمت استعادة المنتجات الافتراضية ✅');
+      renderAdminOffers();
+      loadHeroInputs();
+      showToast('تمت استعادة البيانات الافتراضية ✅');
     }
 
     function renderAdminProducts() {
       document.getElementById('adminProdCount').textContent = products.length;
+      document.getElementById('tabProdCount').textContent = products.length;
       const list = document.getElementById('adminProductsList');
       if (products.length === 0) {
         list.innerHTML = `<div class="text-center py-8 bg-slate-50 rounded-2xl border border-dashed border-slate-300 text-sm text-slate-500 font-bold">لا توجد منتجات حالياً. أضيفي أول منتج من النموذج بالأعلى!</div>`;
@@ -1070,6 +1541,7 @@
                 <h5 class="font-bold text-sm text-slate-900">${p.name}</h5>
                 <div class="flex items-center gap-2 text-xs mt-0.5">
                   <span class="font-black text-blue-700">${p.price} ج.م</span>
+                  ${p.oldPrice ? `<span class="line-through text-slate-400">${p.oldPrice} ج.م</span>` : ''}
                   <span class="text-slate-400">•</span>
                   <span class="text-slate-600">${CATEGORY_NAMES[p.category] || p.category}</span>
                   <span class="text-slate-400">•</span>
@@ -1088,10 +1560,177 @@
       }).join('');
     }
 
+    // Offers Management Functions
+    function saveAnnouncementText() {
+      const val = document.getElementById('announcementInput').value.trim();
+      if (!val) return;
+      announcementText = val;
+      localStorage.setItem('katakeet_announcement_v1', announcementText);
+      renderStoreUI();
+      showToast('تم تحديث شريط الإعلانات العلوي ✅');
+    }
+
+    function saveOffer(e) {
+      e.preventDefault();
+      const id = document.getElementById('editOfferId').value;
+      const title = document.getElementById('offerTitle').value.trim();
+      const desc = document.getElementById('offerDesc').value.trim();
+      const code = document.getElementById('offerCode').value.trim().toUpperCase();
+      const percent = Number(document.getElementById('offerPercent').value) || 0;
+      const active = document.getElementById('offerActive').checked;
+
+      if (id) {
+        const idx = offers.findIndex(o => o.id === id);
+        if (idx > -1) {
+          offers[idx] = { id, title, desc, code, percent, active };
+          showToast('تم تحديث العرض بنجاح ✅');
+        }
+      } else {
+        offers.unshift({
+          id: 'off_' + Date.now(),
+          title,
+          desc,
+          code,
+          percent,
+          active
+        });
+        showToast('تم إضافة العرض الجديد 🎉');
+      }
+
+      saveOffersToStorage();
+      resetOfferForm();
+      renderStoreUI();
+      renderAdminOffers();
+    }
+
+    function editOffer(id) {
+      const o = offers.find(item => item.id === id);
+      if (!o) return;
+      document.getElementById('editOfferId').value = o.id;
+      document.getElementById('offerTitle').value = o.title;
+      document.getElementById('offerDesc').value = o.desc;
+      document.getElementById('offerCode').value = o.code || '';
+      document.getElementById('offerPercent').value = o.percent || 0;
+      document.getElementById('offerActive').checked = !!o.active;
+
+      document.getElementById('offerFormTitle').innerHTML = `<span>✏️ تعديل العرض: ${o.title}</span>`;
+      document.getElementById('cancelOfferEditBtn').classList.remove('hidden');
+    }
+
+    function toggleOfferStatus(id) {
+      const o = offers.find(item => item.id === id);
+      if (!o) return;
+      o.active = !o.active;
+      saveOffersToStorage();
+      renderStoreUI();
+      renderAdminOffers();
+      showToast(o.active ? 'تم تفعيل العرض' : 'تم إيقاف العرض مؤقتاً');
+    }
+
+    function deleteOfferClick(id) {
+      if (pendingDeleteOfferId === id) {
+        offers = offers.filter(o => o.id !== id);
+        pendingDeleteOfferId = null;
+        saveOffersToStorage();
+        renderStoreUI();
+        renderAdminOffers();
+        showToast('تم حذف العرض', '🗑️');
+      } else {
+        pendingDeleteOfferId = id;
+        renderAdminOffers();
+        setTimeout(() => {
+          if (pendingDeleteOfferId === id) {
+            pendingDeleteOfferId = null;
+            renderAdminOffers();
+          }
+        }, 3500);
+      }
+    }
+
+    function resetOfferForm() {
+      document.getElementById('offerForm').reset();
+      document.getElementById('editOfferId').value = '';
+      document.getElementById('offerActive').checked = true;
+      document.getElementById('offerFormTitle').innerHTML = `<span>🎁 إضافة عرض ترويجي أو كوبون خصم جديد</span>`;
+      document.getElementById('cancelOfferEditBtn').classList.add('hidden');
+    }
+
+    function renderAdminOffers() {
+      document.getElementById('adminOfferCount').textContent = offers.length;
+      document.getElementById('tabOfferCount').textContent = offers.length;
+      const list = document.getElementById('adminOffersList');
+
+      if (offers.length === 0) {
+        list.innerHTML = `<div class="text-center py-6 bg-slate-50 rounded-2xl border border-dashed border-slate-300 text-xs text-slate-500 font-bold">لا توجد عروض حالياً. أضيفي أول عرض من النموذج بالأعلى!</div>`;
+        return;
+      }
+
+      list.innerHTML = offers.map(o => {
+        const isConfirming = pendingDeleteOfferId === o.id;
+        return `
+          <div class="flex flex-wrap sm:flex-nowrap items-center justify-between gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+            <div>
+              <div class="flex items-center gap-2">
+                <h5 class="font-black text-sm text-slate-900">${o.title}</h5>
+                <span class="text-xs px-2 py-0.5 rounded-full font-bold ${o.active ? 'bg-green-100 text-green-700' : 'bg-slate-200 text-slate-600'}">
+                  ${o.active ? 'مفعّل' : 'متوقف'}
+                </span>
+                ${o.code ? `<span class="text-xs bg-yellow-200 text-blue-950 font-black px-2 py-0.5 rounded-md border border-blue-900">${o.code} (${o.percent}%)</span>` : ''}
+              </div>
+              <p class="text-xs text-slate-600 mt-1">${o.desc}</p>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button type="button" onclick="toggleOfferStatus('${o.id}')" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold text-xs px-3 py-2 rounded-xl">
+                ${o.active ? 'إيقاف' : 'تفعيل'}
+              </button>
+              <button type="button" onclick="editOffer('${o.id}')" class="bg-blue-100 hover:bg-blue-200 text-blue-800 font-bold text-xs px-3 py-2 rounded-xl">تعديل</button>
+              <button type="button" onclick="deleteOfferClick('${o.id}')" class="${isConfirming ? 'bg-red-600 text-white animate-pulse' : 'bg-red-100 hover:bg-red-200 text-red-700'} font-bold text-xs px-3 py-2 rounded-xl">
+                ${isConfirming ? 'تأكيد الحذف؟' : 'حذف'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function applyBulkDiscount() {
+      const cat = document.getElementById('bulkDiscountCat').value;
+      const pct = Number(document.getElementById('bulkDiscountPct').value);
+      if (!pct || pct <= 0 || pct >= 95) return;
+
+      let count = 0;
+      products.forEach(p => {
+        if (cat === 'all' || p.category === cat) {
+          const basePrice = p.oldPrice && p.oldPrice > p.price ? p.oldPrice : p.price;
+          p.oldPrice = basePrice;
+          p.price = Math.round(basePrice * (1 - pct / 100));
+          count++;
+        }
+      });
+
+      saveProductsToStorage();
+      renderProducts();
+      renderAdminProducts();
+      showToast(`تم تطبيق خصم ${pct}% على ${count} منتج 🔥`);
+    }
+
+    function clearAllDiscounts() {
+      products.forEach(p => {
+        if (p.oldPrice && p.oldPrice > p.price) {
+          p.price = p.oldPrice;
+        }
+        p.oldPrice = null;
+      });
+      saveProductsToStorage();
+      renderProducts();
+      renderAdminProducts();
+      showToast('تم إلغاء جميع الخصومات وإعادة الأسعار الأصلية');
+    }
+
     function exportUpdatedHTML() {
       const fullDoc = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      const updatedBlock = `// EMBEDDED_PRODUCTS_START\n    const DEFAULT_PRODUCTS = ${JSON.stringify(products, null, 2)};\n    // EMBEDDED_PRODUCTS_END`;
-      const newDoc = fullDoc.replace(/\/\/ EMBEDDED_PRODUCTS_START[\s\S]*?\/\/ EMBEDDED_PRODUCTS_END/, updatedBlock);
+      const updatedBlock = `// EMBEDDED_DATA_START\n    const DEFAULT_PRODUCTS = ${JSON.stringify(products, null, 2)};\n\n    const DEFAULT_OFFERS = ${JSON.stringify(offers, null, 2)};\n\n    const DEFAULT_ANNOUNCEMENT = ${JSON.stringify(announcementText)};\n\n    const DEFAULT_HERO_DATA = ${JSON.stringify(heroData, null, 2)};\n    // EMBEDDED_DATA_END`;
+      const newDoc = fullDoc.replace(/\/\/ EMBEDDED_DATA_START[\s\S]*?\/\/ EMBEDDED_DATA_END/, updatedBlock);
       
       const blob = new Blob([newDoc], { type: 'text/html;charset=utf-8' });
       const url = URL.createObjectURL(blob);
@@ -1102,12 +1741,15 @@
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showToast('تم تحميل ملف index.html المحدث! ارفعيه على الاستضافة ليظهر للجميع', '💾');
+      showToast('تم تحميل ملف index.html المحدث بكل الإعدادات والصور!', '💾');
     }
 
     // Initialize App
+    renderStoreUI();
     renderProducts();
     updateCartUI();
+    document.getElementById('tabProdCount').textContent = products.length;
+    document.getElementById('tabOfferCount').textContent = offers.length;
     if (window.lucide) lucide.createIcons();
   </script>
 </body>
