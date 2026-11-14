@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>كتاكيت (Katakeet) | متجر ملابس الأطفال</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #F8FAFC;
+    }
+    .hero-pattern {
+      background-color: #E0F2FE;
+      background-image: radial-gradient(#38BDF8 1px, transparent 1px), radial-gradient(#FACC15 1px, #E0F2FE 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-yellow-300 selection:text-blue-950">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-blue-900 text-yellow-300 text-xs sm:text-sm py-2 px-4 text-center font-bold tracking-wide">
+    🐥 أهلاً بكم في متجر كتاكيت! شحن مجاني للطلبات فوق 1000 ج.م • الطلب المباشر عبر واتساب: 01275542947
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+        
+        <!-- Logo -->
+        <a href="#" onclick="resetFilters()" class="flex items-center gap-3 group shrink-0">
+          <div class="w-12 h-12 rounded-2xl bg-yellow-400 border-2 border-blue-900 flex items-center justify-center text-2xl shadow-sm group-hover:rotate-6 transition-transform">
+            🐥
+          </div>
+          <div>
+            <span class="text-2xl font-black text-blue-900 tracking-tight block leading-none">كتاكيت</span>
+            <span class="text-xs font-bold text-amber-500 tracking-widest uppercase">Katakeet Kids</span>
+          </div>
+        </a>
+
+        <!-- Search Bar (Desktop) -->
+        <div class="hidden md:flex flex-1 max-w-md relative">
+          <input 
+            type="text" 
+            id="searchInput"
+            oninput="handleSearch(this.value)"
+            placeholder="ابحثي عن طقم، فستان، سالوبيت..." 
+            class="w-full bg-slate-100 border-2 border-transparent focus:border-blue-500 focus:bg-white rounded-2xl py-2.5 pr-11 pl-4 text-sm font-medium outline-none transition-all"
+          />
+          <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2"></i>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button type="button" onclick="shareStore()" title="مشاركة رابط المتجر" class="flex items-center gap-1.5 bg-sky-50 hover:bg-sky-100 text-blue-800 font-bold text-xs sm:text-sm px-3 py-2.5 rounded-xl border border-sky-200 transition">
+            <i data-lucide="share-2" class="w-4 h-4"></i>
+            <span class="hidden sm:inline">مشاركة</span>
+          </button>
+
+          <button type="button" onclick="openAdminModal()" class="flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm px-3 py-2.5 rounded-xl transition">
+            <i data-lucide="settings" class="w-4 h-4"></i>
+            <span class="hidden sm:inline">لوحة التحكم</span>
+          </button>
+
+          <button type="button" onclick="toggleCart(true)" class="relative flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-blue-950 font-extrabold px-4 py-2.5 rounded-2xl shadow-sm border-2 border-blue-900 transition transform active:scale-95">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span class="hidden sm:inline text-sm">السلة</span>
+            <span id="cartCountBadge" class="bg-blue-900 text-yellow-300 text-xs font-black w-6 h-6 rounded-full flex items-center justify-center">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Search -->
+      <div class="md:hidden pb-3">
+        <div class="relative">
+          <input 
+            type="text" 
+            oninput="handleSearch(this.value)"
+            placeholder="ابحثي عن ملابس أطفال..." 
+            class="w-full bg-slate-100 border border-slate-200 focus:border-blue-500 focus:bg-white rounded-xl py-2 pr-10 pl-4 text-sm outline-none"
+          />
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-pattern border-b border-blue-200 py-12 sm:py-16 px-4 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div class="bg-white/90 backdrop-blur-md p-7 sm:p-10 rounded-3xl border-2 border-blue-200 shadow-xl">
+        <div class="inline-flex items-center gap-2 bg-yellow-300 text-blue-950 font-extrabold text-xs sm:text-sm px-4 py-1.5 rounded-full mb-5">
+          <span>✨ تشكيلة الموسم الجديد</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black text-blue-950 leading-tight mb-4">
+          أناقة وراحة أطفالك تبدأ من <span class="text-blue-600 underline decoration-yellow-400 decoration-4 underline-offset-8">كتاكيت</span>
+        </h1>
+        <p class="text-slate-600 text-base sm:text-lg font-medium mb-7 leading-relaxed">
+          أجود الخامات القطنية الناعمة بتصميمات مبهجة وألوان عصرية تناسب الأولاد والبنات وحديثي الولادة. اطلبي الآن بكل سهولة عبر الواتساب!
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#productsSection" class="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-7 py-3.5 rounded-2xl shadow-lg shadow-blue-600/25 transition flex items-center gap-2">
+            <span>تصفحي التشكيلة</span>
+            <i data-lucide="arrow-down" class="w-5 h-5"></i>
+          </a>
+          <a href="https://wa.me/201275542947?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%85%D8%AA%D8%AC%D8%B1%20%D9%83%D8%AA%D8%A7%D9%83%D9%8A%D8%AA%D8%8C%20%D8%AD%D8%A7%D8%A8%D8%A9%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%85%D9%88%D8%AF%D9%8A%D9%84%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-lg shadow-green-500/25 transition flex items-center gap-2">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>تواصلي واتساب</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-slate-100 text-center">
+          <div>
+            <p class="text-xl sm:text-2xl font-black text-blue-900">100%</p>
+            <p class="text-xs text-slate-500 font-bold">قطن مصري ناعم</p>
+          </div>
+          <div>
+            <p class="text-xl sm:text-2xl font-black text-blue-900">24 ساعة</p>
+            <p class="text-xs text-slate-500 font-bold">تجهيز وشحن سريع</p>
+          </div>
+          <div>
+            <p class="text-xl sm:text-2xl font-black text-blue-900">+500</p>
+            <p class="text-xs text-slate-500 font-bold">أم سعيدة بمنتجاتنا</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Showcase -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="space-y-4">
+          <div class="bg-yellow-400 p-3 rounded-3xl shadow-lg border-2 border-blue-900 transform -rotate-2">
+            <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80" alt="ملابس أولاد" class="w-full h-56 object-cover rounded-2xl">
+            <p class="text-center font-black text-blue-950 mt-2 text-sm">كولكشن الأولاد 👦</p>
+          </div>
+          <div class="bg-blue-600 text-white p-5 rounded-3xl shadow-lg flex items-center justify-between">
+            <div>
+              <p class="text-xs text-yellow-300 font-bold">خصم خاص</p>
+              <p class="text-lg font-black">أطقم الخروج</p>
+            </div>
+            <span class="text-3xl">👕</span>
+          </div>
+        </div>
+        <div class="space-y-4 mt-6">
+          <div class="bg-white p-5 rounded-3xl shadow-lg border-2 border-yellow-400 flex items-center justify-between">
+            <div>
+              <p class="text-xs text-blue-600 font-bold">وصل حديثاً</p>
+              <p class="text-lg font-black text-blue-950">حديثي الولادة</p>
+            </div>
+            <span class="text-3xl">🍼</span>
+          </div>
+          <div class="bg-sky-200 p-3 rounded-3xl shadow-lg border-2 border-blue-900 transform rotate-2">
+            <img src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=600&q=80" alt="ملابس بنات" class="w-full h-56 object-cover rounded-2xl">
+            <p class="text-center font-black text-blue-950 mt-2 text-sm">كولكشن البنات 👧</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Storefront -->
+  <main id="productsSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Section Header & Category Filters -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-black text-blue-950">تشكيلة كتاكيت المميزة</h2>
+        <p class="text-slate-500 text-sm font-medium mt-1">اختاري المقاس المناسب وأضيفي القطع للسلة للطلب عبر واتساب</p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div id="categoryTabs" class="flex flex-wrap gap-2">
+        <button type="button" onclick="setCategory('all')" data-cat="all" class="cat-btn active bg-blue-900 text-yellow-300 font-bold px-4 py-2 rounded-xl text-sm transition">الكل</button>
+        <button type="button" onclick="setCategory('boys')" data-cat="boys" class="cat-btn bg-white hover:bg-blue-50 text-slate-700 border border-slate-200 font-bold px-4 py-2 rounded-xl text-sm transition">أولاد 👦</button>
+        <button type="button" onclick="setCategory('girls')" data-cat="girls" class="cat-btn bg-white hover:bg-blue-50 text-slate-700 border border-slate-200 font-bold px-4 py-2 rounded-xl text-sm transition">بنات 👧</button>
+        <button type="button" onclick="setCategory('baby')" data-cat="baby" class="cat-btn bg-white hover:bg-blue-50 text-slate-700 border border-slate-200 font-bold px-4 py-2 rounded-xl text-sm transition">حديثي الولادة 🍼</button>
+        <button type="button" onclick="setCategory('shoes')" data-cat="shoes" class="cat-btn bg-white hover:bg-blue-50 text-slate-700 border border-slate-200 font-bold px-4 py-2 rounded-xl text-sm transition">أحذية وإكسسوارات 👟</button>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Rendered via JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200">
+      <div class="text-5xl mb-3">🛍️</div>
+      <h3 class="text-xl font-bold text-slate-800">لا توجد منتجات معروضة حالياً</h3>
+      <p class="text-slate-500 text-sm mt-1 mb-4">يمكنك إضافة منتجات جديدة من لوحة التحكم أو عرض كل الأقسام</p>
+      <button type="button" onclick="resetFilters()" class="bg-blue-600 text-white font-bold px-6 py-2.5 rounded-xl text-sm">عرض كل المنتجات</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-950 text-white mt-16 border-t-4 border-yellow-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-yellow-400 flex items-center justify-center text-xl">🐥</div>
+          <span class="text-2xl font-black text-white">متجر كتاكيت</span>
+        </div>
+        <p class="text-blue-200 text-sm leading-relaxed">
+          وجهتك الأولى لأحدث وأرقى ملابس الأطفال بخامات قطنية ممتازة وأسعار تناسب كل أسرة.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-bold text-yellow-300 mb-3">أقسام المتجر</h4>
+        <ul class="space-y-2 text-sm text-blue-200">
+          <li><button type="button" onclick="setCategory('boys')" class="hover:text-white">ملابس أولاد</button></li>
+          <li><button type="button" onclick="setCategory('girls')" class="hover:text-white">ملابس بنات</button></li>
+          <li><button type="button" onclick="setCategory('baby')" class="hover:text-white">حديثي الولادة</button></li>
+          <li><button type="button" onclick="setCategory('shoes')" class="hover:text-white">أحذية وإكسسوارات</button></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-yellow-300 mb-3">تواصلي معنا للطلبات</h4>
+        <p class="text-sm text-blue-200 mb-3">خدمة العملاء والطلبات السريعة عبر واتساب:</p>
+        <a href="https://wa.me/201275542947" target="_blank" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          <span dir="ltr">01275542947</span>
+        </a>
+      </div>
+    </div>
+    <div class="border-t border-blue-900 py-4 text-center text-xs text-blue-300">
+      © 2026 متجر كتاكيت لملابس الأطفال (Katakeet). جميع الحقوق محفوظة.
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/201275542947?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%85%D8%AA%D8%AC%D8%B1%20%D9%83%D8%AA%D8%A7%D9%83%D9%8A%D8%AA" target="_blank" title="تواصل معنا عبر واتساب" class="fixed bottom-5 left-5 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110">
+    <i data-lucide="message-circle" class="w-7 h-7"></i>
+  </a>
+
+  <!-- Shopping Cart Drawer -->
+  <div id="cartDrawerOverlay" onclick="toggleCart(false)" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+  <aside id="cartDrawer" class="fixed top-0 left-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+    <!-- Cart Header -->
+    <div class="p-5 bg-blue-900 text-white flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <i data-lucide="shopping-bag" class="w-6 h-6 text-yellow-400"></i>
+        <h3 class="text-lg font-black">سلة مشترياتك</h3>
+      </div>
+      <button type="button" onclick="toggleCart(false)" class="p-1.5 hover:bg-blue-800 rounded-lg transition">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div class="bg-sky-50 px-5 py-3 border-b border-sky-100">
+      <p id="shippingText" class="text-xs font-bold text-blue-900 mb-1.5">أضيفي منتجات بقيمة 1000 ج.م للحصول على شحن مجاني!</p>
+      <div class="w-full bg-sky-200 h-2 rounded-full overflow-hidden">
+        <div id="shippingBar" class="bg-yellow-400 h-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items -->
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-4 custom-scrollbar">
+      <!-- Rendered via JS -->
+    </div>
+
+    <!-- Cart Footer & Checkout Form -->
+    <div id="cartFooter" class="p-5 border-t border-slate-200 bg-slate-50 hidden">
+      <div class="flex items-center justify-between text-sm text-slate-600 mb-1">
+        <span>المجموع الفرعي:</span>
+        <span id="cartSubtotal" class="font-bold">0 ج.م</span>
+      </div>
+      <div class="flex items-center justify-between text-sm text-slate-600 mb-3">
+        <span>الشحن:</span>
+        <span id="cartShipping" class="font-bold text-green-600">50 ج.م</span>
+      </div>
+      <div class="flex items-center justify-between text-lg font-black text-blue-950 pt-2 border-t border-slate-200 mb-4">
+        <span>الإجمالي النهائي:</span>
+        <span id="cartTotal">0 ج.م</span>
+      </div>
+
+      <button type="button" onclick="openCheckoutModal()" class="w-full bg-green-500 hover:bg-green-600 text-white font-black py-3.5 px-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 transition">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <span>اطلبي عبر واتساب الآن</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- WhatsApp Checkout Details Modal -->
+  <div id="checkoutModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border-2 border-blue-100">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-black text-blue-950">بيانات التوصيل 🚚</h3>
+        <button type="button" onclick="closeCheckoutModal()" class="text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <p class="text-xs text-slate-500 mb-4">أدخلي بياناتك وسيتم تحويلك مباشرة إلى واتساب متجر كتاكيت (01275542947) لتأكيد الطلب.</p>
+      
+      <form onsubmit="submitWhatsAppOrder(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">الاسم بالكامل *</label>
+          <input type="text" id="custName" required placeholder="مثال: أميرة محمد" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm outline-none focus:border-blue-600">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">رقم الموبايل (يفضل واتساب) *</label>
+          <input type="tel" id="custPhone" required placeholder="01xxxxxxxxx" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm outline-none focus:border-blue-600">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">المحافظة والعنوان بالتفصيل *</label>
+          <textarea id="custAddress" required rows="2" placeholder="المحافظة - المنطقة - اسم الشارع - رقم العمارة" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm outline-none focus:border-blue-600"></textarea>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">ملاحظات إضافية (اختياري)</label>
+          <input type="text" id="custNotes" placeholder="مثال: التوصيل بعد الساعة 5 مساءً" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm outline-none focus:border-blue-600">
+        </div>
+        <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-black py-3.5 rounded-2xl shadow-md flex items-center justify-center gap-2 mt-2">
+          <i data-lucide="send" class="w-5 h-5"></i>
+          <span>إرسال الطلب على واتساب</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard Modal -->
+  <div id="adminModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-xs z-50 hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl my-8 max-h-[90vh] overflow-y-auto custom-scrollbar">
+      
+      <!-- Admin Login View -->
+      <div id="adminLoginView" class="max-w-sm mx-auto text-center py-6">
+        <div class="w-16 h-16 bg-yellow-400 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 border-2 border-blue-900">🔐</div>
+        <h3 class="text-2xl font-black text-blue-950 mb-1">لوحة تحكم صاحب المتجر</h3>
+        <p class="text-xs text-slate-500 mb-5">أدخلي كلمة المرور لإدارة المنتجات والأسعار (الافتراضية: 1234)</p>
+        <input type="password" id="adminPassInput" onkeydown="if(event.key==='Enter') verifyAdmin()" placeholder="كلمة المرور" class="w-full border-2 border-slate-200 focus:border-blue-600 rounded-xl px-4 py-3 text-center font-bold mb-3 outline-none">
+        <p id="adminPassError" class="text-red-500 text-xs font-bold mb-3 hidden">كلمة المرور غير صحيحة!</p>
+        <div class="flex gap-2">
+          <button type="button" onclick="verifyAdmin()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl">دخول</button>
+          <button type="button" onclick="closeAdminModal()" class="px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl">إلغاء</button>
+        </div>
+      </div>
+
+      <!-- Admin Dashboard Content -->
+      <div id="adminDashboardView" class="hidden">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 mb-6 border-b border-slate-200">
+          <div>
+            <h3 class="text-2xl font-black text-blue-950">إدارة منتجات متجر كتاكيت 🐥</h3>
+            <p class="text-xs text-slate-500">أضيفي منتجات جديدة، احذفي أو عدّلي الأسعار، ثم حمّلي النسخة المحدثة</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" onclick="exportUpdatedHTML()" class="text-xs bg-green-600 hover:bg-green-700 text-white font-bold px-3.5 py-2.5 rounded-xl shadow-sm flex items-center gap-1.5">
+              <span>💾 تحميل ملف المتجر المحدث</span>
+            </button>
+            <button type="button" onclick="resetDefaultProducts()" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold px-3 py-2.5 rounded-xl border border-amber-200">استعادة الافتراضي</button>
+            <button type="button" onclick="closeAdminModal()" class="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Add / Edit Product Form -->
+        <form id="productForm" onsubmit="saveProduct(event)" class="bg-sky-50/70 p-5 rounded-2xl border border-sky-200 mb-8">
+          <h4 id="formTitle" class="font-black text-blue-900 mb-4 flex items-center gap-2">
+            <span>➕ إضافة منتج جديد</span>
+          </h4>
+          <input type="hidden" id="editProductId">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">اسم المنتج *</label>
+              <input type="text" id="prodName" required placeholder="مثال: طقم صيفي قطن 3 قطع" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">السعر (ج.م) *</label>
+              <input type="number" id="prodPrice" required min="1" placeholder="350" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">السعر قبل الخصم (اختياري)</label>
+              <input type="number" id="prodOldPrice" min="1" placeholder="420" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">القسم *</label>
+              <select id="prodCategory" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+                <option value="boys">أولاد 👦</option>
+                <option value="girls">بنات 👧</option>
+                <option value="baby">حديثي الولادة 🍼</option>
+                <option value="shoes">أحذية وإكسسوارات 👟</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">المقاسات المتاحة (افصلي بفاصلة)</label>
+              <input type="text" id="prodSizes" required value="2 سنوات, 4 سنوات, 6 سنوات, 8 سنوات" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">حالة التوفر</label>
+              <select id="prodStock" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+                <option value="true">متوفر ✅</option>
+                <option value="false">نفدت الكمية ❌</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">رابط صورة المنتج (URL)</label>
+              <input type="url" id="prodImageUrl" placeholder="https://..." class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-600">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">أو ارفعي صورة من جهازك (يتم ضغطها تلقائياً)</label>
+              <input type="file" id="prodImageFile" accept="image/*" onchange="handleImageUpload(event)" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs">
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 mt-5">
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm shadow-sm">حفظ التغييرات</button>
+            <button type="button" id="cancelEditBtn" onclick="resetProductForm()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-4 py-2.5 rounded-xl text-sm">إلغاء التعديل</button>
+          </div>
+        </form>
+
+        <!-- Existing Products List -->
+        <div class="flex items-center justify-between mb-3">
+          <h4 class="font-black text-slate-800">المنتجات الحالية (<span id="adminProdCount">0</span>)</h4>
+          <button type="button" id="deleteAllBtn" onclick="handleDeleteAll()" class="text-xs bg-red-50 hover:bg-red-100 text-red-700 font-bold px-3 py-1.5 rounded-xl border border-red-200 transition">
+            🗑️ حذف كل المنتجات
+          </button>
+        </div>
+        <div id="adminProductsList" class="space-y-3">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-blue-950 text-white px-5 py-3 rounded-2xl shadow-xl text-sm font-bold flex items-center gap-2 transform translate-y-24 opacity-0 transition-all duration-300">
+    <span id="toastIcon">✅</span>
+    <span id="toastMsg">تمت العملية بنجاح</span>
+  </div>
+
+  <script>
+    // EMBEDDED_PRODUCTS_START
+    const DEFAULT_PRODUCTS = [
+      {
+        id: 'p1',
+        name: 'طقم صيفي كاجوال قطن للأولاد',
+        price: 340,
+        oldPrice: 410,
+        category: 'boys',
+        sizes: ['2 سنوات', '4 سنوات', '6 سنوات', '8 سنوات'],
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'p2',
+        name: 'فستان بناتي مبهج بنقشة الزهور',
+        price: 390,
+        oldPrice: 460,
+        category: 'girls',
+        sizes: ['3 سنوات', '5 سنوات', '7 سنوات', '9 سنوات'],
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'p3',
+        name: 'سالوبيت قطن ناعم لحديثي الولادة',
+        price: 250,
+        oldPrice: null,
+        category: 'baby',
+        sizes: ['0-3 شهور', '3-6 شهور', '6-12 شهر'],
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'p4',
+        name: 'طقم خروج جينز وتيشيرت أصفر',
+        price: 420,
+        oldPrice: 490,
+        category: 'boys',
+        sizes: ['4 سنوات', '6 سنوات', '8 سنوات', '10 سنوات'],
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'p5',
+        name: 'طقم بناتي أنيق بلوزة وجيبة',
+        price: 375,
+        oldPrice: null,
+        category: 'girls',
+        sizes: ['2 سنوات', '4 سنوات', '6 سنوات'],
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1621452773781-0f992fd195cb?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'p6',
+        name: 'كوتشي أطفال خفيف ومريح للمشي',
+        price: 290,
+        oldPrice: 350,
+        category: 'shoes',
+        sizes: ['22', '24', '26', '28', '30'],
+        inStock: true,
+        image: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=600&q=80'
+      }
+    ];
+    // EMBEDDED_PRODUCTS_END
+
+    function loadProducts() {
+      try {
+        const saved = localStorage.getItem('katakeet_products_v2');
+        if (saved !== null) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch (e) {
+        console.error('Storage read error:', e);
+      }
+      return JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+    }
+
+    function loadCart() {
+      try {
+        const saved = localStorage.getItem('katakeet_cart_v2');
+        return saved ? JSON.parse(saved) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    let products = loadProducts();
+    let cart = loadCart();
+    let activeCategory = 'all';
+    let searchQuery = '';
+    let selectedSizes = {};
+    let uploadedBase64Image = '';
+    let pendingDeleteId = null;
+    let pendingDeleteAll = false;
+
+    const CATEGORY_NAMES = {
+      boys: 'أولاد 👦',
+      girls: 'بنات 👧',
+      baby: 'حديثي الولادة 🍼',
+      shoes: 'أحذية وإكسسوارات 👟'
+    };
+
+    function saveProductsToStorage() {
+      try {
+        localStorage.setItem('katakeet_products_v2', JSON.stringify(products));
+        return true;
+      } catch (e) {
+        showToast('مساحة التخزين ممتلئة! استخدمي روابط صور أصغر', '⚠️');
+        return false;
+      }
+    }
+
+    function saveCartToStorage() {
+      try {
+        localStorage.setItem('katakeet_cart_v2', JSON.stringify(cart));
+      } catch (e) {}
+    }
+
+    function showToast(msg, icon = '✅') {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      document.getElementById('toastIcon').textContent = icon;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3000);
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const emptyState = document.getElementById('emptyState');
+
+      const filtered = products.filter(p => {
+        const matchesCat = activeCategory === 'all' || p.category === activeCategory;
+        const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCat && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      grid.innerHTML = filtered.map(product => {
+        const sizesList = Array.isArray(product.sizes) && product.sizes.length ? product.sizes : ['مقاس موحد'];
+        const currentSize = selectedSizes[product.id] || sizesList[0];
+        const discount = product.oldPrice ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
+
+        return `
+          <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group">
+            <div class="relative h-64 bg-slate-100 overflow-hidden">
+              <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${!product.inStock ? 'opacity-50 grayscale' : ''}">
+              <span class="absolute top-3 right-3 bg-white/95 backdrop-blur-xs text-blue-950 text-xs font-extrabold px-3 py-1 rounded-full shadow-xs">
+                ${CATEGORY_NAMES[product.category] || 'ملابس أطفال'}
+              </span>
+              ${discount > 0 && product.inStock ? `
+                <span class="absolute top-3 left-3 bg-yellow-400 text-blue-950 text-xs font-black px-2.5 py-1 rounded-full border border-blue-900">
+                  خصم ${discount}%
+                </span>
+              ` : ''}
+              ${!product.inStock ? `
+                <div class="absolute inset-0 bg-slate-900/40 flex items-center justify-center">
+                  <span class="bg-red-600 text-white font-black px-4 py-1.5 rounded-xl text-sm shadow-lg">نفدت الكمية</span>
+                </div>
+              ` : ''}
+            </div>
+
+            <div class="p-5 flex-1 flex flex-col">
+              <h3 class="font-extrabold text-slate-900 text-base mb-2 line-clamp-1">${product.name}</h3>
+              
+              <div class="flex items-baseline gap-2 mb-3">
+                <span class="text-xl font-black text-blue-700">${product.price} ج.م</span>
+                ${product.oldPrice ? `<span class="text-xs text-slate-400 line-through font-bold">${product.oldPrice} ج.م</span>` : ''}
+              </div>
+
+              <div class="mb-4">
+                <span class="block text-xs font-bold text-slate-500 mb-1.5">اختاري المقاس:</span>
+                <div class="flex flex-wrap gap-1.5">
+                  ${sizesList.map(size => `
+                    <button 
+                      type="button"
+                      onclick="selectSize('${product.id}', '${size.replace(/'/g, "\\'")}')"
+                      class="text-xs font-bold px-2.5 py-1 rounded-lg border transition ${currentSize === size ? 'bg-blue-900 text-yellow-300 border-blue-900' : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-blue-400'}"
+                    >
+                      ${size}
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+
+              <button 
+                type="button"
+                onclick="addToCart('${product.id}')"
+                ${!product.inStock ? 'disabled' : ''}
+                class="mt-auto w-full py-3 px-4 rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition ${product.inStock ? 'bg-yellow-400 hover:bg-yellow-300 text-blue-950 border-2 border-blue-900 active:scale-95' : 'bg-slate-200 text-slate-400 cursor-not-allowed'}"
+              >
+                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                <span>${product.inStock ? 'أضيفي إلى السلة' : 'غير متوفر حالياً'}</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function selectSize(productId, size) {
+      selectedSizes[productId] = size;
+      renderProducts();
+    }
+
+    function setCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = 'cat-btn active bg-blue-900 text-yellow-300 font-bold px-4 py-2 rounded-xl text-sm transition';
+        } else {
+          btn.className = 'cat-btn bg-white hover:bg-blue-50 text-slate-700 border border-slate-200 font-bold px-4 py-2 rounded-xl text-sm transition';
+        }
+      });
+      renderProducts();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val.trim();
+      renderProducts();
+    }
+
+    function resetFilters() {
+      activeCategory = 'all';
+      searchQuery = '';
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) searchInput.value = '';
+      setCategory('all');
+    }
+
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product || !product.inStock) return;
+
+      const sizesList = Array.isArray(product.sizes) && product.sizes.length ? product.sizes : ['مقاس موحد'];
+      const size = selectedSizes[productId] || sizesList[0];
+      const existingIndex = cart.findIndex(item => item.id === productId && item.size === size);
+
+      if (existingIndex > -1) {
+        cart[existingIndex].qty += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          size: size,
+          qty: 1
+        });
+      }
+
+      saveCartToStorage();
+      updateCartUI();
+      showToast(`تمت إضافة "${product.name}" للسلة`, '🛍️');
+    }
+
+    function updateCartQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      saveCartToStorage();
+      updateCartUI();
+    }
+
+    function removeCartItem(index) {
+      cart.splice(index, 1);
+      saveCartToStorage();
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cartCountBadge');
+      const container = document.getElementById('cartItemsContainer');
+      const footer = document.getElementById('cartFooter');
+
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge.textContent = totalQty;
+
+      if (cart.length === 0) {
+        footer.classList.add('hidden');
+        container.innerHTML = `
+          <div class="text-center py-16">
+            <div class="text-5xl mb-3">🛒</div>
+            <h4 class="font-bold text-slate-800">سلة التسوق فارغة</h4>
+            <p class="text-xs text-slate-500 mt-1">تصفحي تشكيلة كتاكيت وأضيفي القطع المفضلة</p>
+          </div>
+        `;
+        updateShippingBar(0);
+        return;
+      }
+
+      footer.classList.remove('hidden');
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const shipping = subtotal >= 1000 ? 0 : 50;
+      const total = subtotal + shipping;
+
+      document.getElementById('cartSubtotal').textContent = `${subtotal} ج.م`;
+      document.getElementById('cartShipping').textContent = shipping === 0 ? 'مجاني 🎉' : `${shipping} ج.م`;
+      document.getElementById('cartTotal').textContent = `${total} ج.م`;
+
+      updateShippingBar(subtotal);
+
+      container.innerHTML = cart.map((item, idx) => `
+        <div class="flex gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-200">
+          <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-xl shrink-0">
+          <div class="flex-1 min-w-0">
+            <h4 class="font-bold text-sm text-slate-900 truncate">${item.name}</h4>
+            <p class="text-xs text-blue-700 font-bold mt-0.5">المقاس: ${item.size}</p>
+            <p class="text-sm font-black text-slate-800 mt-1">${item.price * item.qty} ج.م</p>
+            <div class="flex items-center justify-between mt-2">
+              <div class="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-2 py-0.5">
+                <button type="button" onclick="updateCartQty(${idx}, -1)" class="text-slate-600 hover:text-blue-700 font-black px-1">-</button>
+                <span class="text-xs font-bold">${item.qty}</span>
+                <button type="button" onclick="updateCartQty(${idx}, 1)" class="text-slate-600 hover:text-blue-700 font-black px-1">+</button>
+              </div>
+              <button type="button" onclick="removeCartItem(${idx})" class="text-red-500 hover:text-red-700 text-xs font-bold">حذف</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateShippingBar(subtotal) {
+      const threshold = 1000;
+      const pct = Math.min(100, (subtotal / threshold) * 100);
+      document.getElementById('shippingBar').style.width = `${pct}%`;
+      const textEl = document.getElementById('shippingText');
+      if (subtotal >= threshold) {
+        textEl.textContent = '🎉 مبروك! حصلتِ على شحن مجاني لطلبك';
+      } else {
+        textEl.textContent = `أضيفي منتجات بقيمة ${threshold - subtotal} ج.م للحصول على شحن مجاني!`;
+      }
+    }
+
+    function toggleCart(open) {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartDrawerOverlay');
+      if (open) {
+        overlay.classList.remove('hidden');
+        drawer.classList.remove('-translate-x-full');
+      } else {
+        overlay.classList.add('hidden');
+        drawer.classList.add('-translate-x-full');
+      }
+    }
+
+    function openCheckoutModal() {
+      toggleCart(false);
+      const modal = document.getElementById('checkoutModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById('checkoutModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function submitWhatsAppOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const address = document.getElementById('custAddress').value.trim();
+      const notes = document.getElementById('custNotes').value.trim();
+
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const shipping = subtotal >= 1000 ? 0 : 50;
+      const total = subtotal + shipping;
+
+      let lines = [
+        '🐥 *طلب جديد من متجر كتاكيت (Katakeet)*',
+        '',
+        `👤 *الاسم:* ${name}`,
+        `📱 *الموبايل:* ${phone}`,
+        `📍 *العنوان:* ${address}`
+      ];
+      if (notes) lines.push(`📝 *ملاحظات:* ${notes}`);
+      lines.push('', '🛍️ *تفاصيل الطلب:*');
+
+      cart.forEach((item, i) => {
+        lines.push(`${i + 1}. ${item.name} (مقاس: ${item.size}) × ${item.qty} = ${item.price * item.qty} ج.م`);
+      });
+
+      lines.push('', `🚚 *الشحن:* ${shipping === 0 ? 'مجاني' : shipping + ' ج.م'}`);
+      lines.push(`💰 *الإجمالي المطلوب:* ${total} ج.م`);
+
+      const message = lines.join('\n');
+      const whatsappUrl = `https://wa.me/201275542947?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      closeCheckoutModal();
+    }
+
+    function shareStore() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'متجر كتاكيت لملابس الأطفال',
+          text: 'تسوقي أحدث تشكيلة ملابس أطفال من متجر كتاكيت!',
+          url: window.location.href
+        });
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        showToast('تم نسخ رابط المتجر للمشاركة!', '🔗');
+      }
+    }
+
+    // Admin Dashboard Logic
+    function openAdminModal() {
+      const modal = document.getElementById('adminModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      if (!document.getElementById('adminDashboardView').classList.contains('hidden')) {
+        renderAdminProducts();
+      }
+    }
+
+    function closeAdminModal() {
+      const modal = document.getElementById('adminModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function verifyAdmin() {
+      const pass = document.getElementById('adminPassInput').value.trim();
+      if (pass === '1234') {
+        document.getElementById('adminLoginView').classList.add('hidden');
+        document.getElementById('adminDashboardView').classList.remove('hidden');
+        document.getElementById('adminPassError').classList.add('hidden');
+        renderAdminProducts();
+      } else {
+        document.getElementById('adminPassError').classList.remove('hidden');
+      }
+    }
+
+    function handleImageUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          const maxW = 600;
+          const scale = Math.min(1, maxW / img.width);
+          canvas.width = img.width * scale;
+          canvas.height = img.height * scale;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          uploadedBase64Image = canvas.toDataURL('image/jpeg', 0.8);
+          showToast('تم تجهيز الصورة وضغطها بنجاح', '🖼️');
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function saveProduct(e) {
+      e.preventDefault();
+      const id = document.getElementById('editProductId').value;
+      const name = document.getElementById('prodName').value.trim();
+      const price = Number(document.getElementById('prodPrice').value);
+      const oldPriceVal = document.getElementById('prodOldPrice').value;
+      const oldPrice = oldPriceVal ? Number(oldPriceVal) : null;
+      const category = document.getElementById('prodCategory').value;
+      const sizes = document.getElementById('prodSizes').value.split(',').map(s => s.trim()).filter(Boolean);
+      const inStock = document.getElementById('prodStock').value === 'true';
+      const urlInput = document.getElementById('prodImageUrl').value.trim();
+
+      let finalImage = uploadedBase64Image || urlInput;
+      if (!finalImage && id) {
+        const existing = products.find(p => p.id === id);
+        if (existing) finalImage = existing.image;
+      }
+      if (!finalImage) {
+        finalImage = 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80';
+      }
+
+      if (id) {
+        const idx = products.findIndex(p => p.id === id);
+        if (idx > -1) {
+          products[idx] = {
+            id,
+            name,
+            price,
+            oldPrice,
+            category,
+            sizes: sizes.length ? sizes : ['مقاس موحد'],
+            inStock,
+            image: finalImage
+          };
+          showToast('تم حفظ تعديلات المنتج بنجاح ✅');
+        }
+      } else {
+        products.unshift({
+          id: 'p_' + Date.now(),
+          name,
+          price,
+          oldPrice,
+          category,
+          sizes: sizes.length ? sizes : ['مقاس موحد'],
+          inStock,
+          image: finalImage
+        });
+        showToast('تم إضافة المنتج الجديد للمتجر 🎉');
+      }
+
+      saveProductsToStorage();
+      resetProductForm();
+      renderProducts();
+      renderAdminProducts();
+    }
+
+    function editProduct(id) {
+      const p = products.find(item => item.id === id);
+      if (!p) return;
+
+      document.getElementById('editProductId').value = p.id;
+      document.getElementById('prodName').value = p.name;
+      document.getElementById('prodPrice').value = p.price;
+      document.getElementById('prodOldPrice').value = p.oldPrice || '';
+      document.getElementById('prodCategory').value = p.category;
+      document.getElementById('prodSizes').value = Array.isArray(p.sizes) ? p.sizes.join(', ') : '';
+      document.getElementById('prodStock').value = p.inStock ? 'true' : 'false';
+      document.getElementById('prodImageUrl').value = p.image && !p.image.startsWith('data:') ? p.image : '';
+      uploadedBase64Image = p.image && p.image.startsWith('data:') ? p.image : '';
+
+      document.getElementById('formTitle').innerHTML = `<span>✏️ تعديل المنتج: ${p.name}</span>`;
+      document.getElementById('cancelEditBtn').classList.remove('hidden');
+      document.getElementById('productForm').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Two-step inline confirmation for delete (bypasses blocked window.confirm)
+    function handleDeleteClick(id) {
+      if (pendingDeleteId === id) {
+        products = products.filter(p => String(p.id) !== String(id));
+        pendingDeleteId = null;
+        if (document.getElementById('editProductId').value === String(id)) {
+          resetProductForm();
+        }
+        saveProductsToStorage();
+        renderProducts();
+        renderAdminProducts();
+        showToast('تم حذف المنتج نهائياً', '🗑️');
+      } else {
+        pendingDeleteId = id;
+        renderAdminProducts();
+        setTimeout(() => {
+          if (pendingDeleteId === id) {
+            pendingDeleteId = null;
+            renderAdminProducts();
+          }
+        }, 3500);
+      }
+    }
+
+    function handleDeleteAll() {
+      const btn = document.getElementById('deleteAllBtn');
+      if (pendingDeleteAll) {
+        products = [];
+        pendingDeleteAll = false;
+        saveProductsToStorage();
+        renderProducts();
+        renderAdminProducts();
+        btn.textContent = '🗑️ حذف كل المنتجات';
+        showToast('تم حذف جميع المنتجات', '🗑️');
+      } else {
+        pendingDeleteAll = true;
+        btn.textContent = '⚠️ اضغطي مرة أخرى لتأكيد حذف الكل';
+        setTimeout(() => {
+          if (pendingDeleteAll) {
+            pendingDeleteAll = false;
+            if (btn) btn.textContent = '🗑️ حذف كل المنتجات';
+          }
+        }, 3500);
+      }
+    }
+
+    function resetProductForm() {
+      document.getElementById('productForm').reset();
+      document.getElementById('editProductId').value = '';
+      uploadedBase64Image = '';
+      document.getElementById('formTitle').innerHTML = `<span>➕ إضافة منتج جديد</span>`;
+      document.getElementById('cancelEditBtn').classList.add('hidden');
+    }
+
+    function resetDefaultProducts() {
+      products = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+      saveProductsToStorage();
+      renderProducts();
+      renderAdminProducts();
+      showToast('تمت استعادة المنتجات الافتراضية ✅');
+    }
+
+    function renderAdminProducts() {
+      document.getElementById('adminProdCount').textContent = products.length;
+      const list = document.getElementById('adminProductsList');
+      if (products.length === 0) {
+        list.innerHTML = `<div class="text-center py-8 bg-slate-50 rounded-2xl border border-dashed border-slate-300 text-sm text-slate-500 font-bold">لا توجد منتجات حالياً. أضيفي أول منتج من النموذج بالأعلى!</div>`;
+        return;
+      }
+
+      list.innerHTML = products.map(p => {
+        const isConfirming = pendingDeleteId === p.id;
+        return `
+          <div class="flex flex-wrap sm:flex-nowrap items-center justify-between gap-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-200">
+            <div class="flex items-center gap-3">
+              <img src="${p.image}" class="w-14 h-14 rounded-xl object-cover shrink-0">
+              <div>
+                <h5 class="font-bold text-sm text-slate-900">${p.name}</h5>
+                <div class="flex items-center gap-2 text-xs mt-0.5">
+                  <span class="font-black text-blue-700">${p.price} ج.م</span>
+                  <span class="text-slate-400">•</span>
+                  <span class="text-slate-600">${CATEGORY_NAMES[p.category] || p.category}</span>
+                  <span class="text-slate-400">•</span>
+                  <span class="${p.inStock ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}">${p.inStock ? 'متوفر' : 'نفد'}</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="editProduct('${p.id}')" class="bg-blue-100 hover:bg-blue-200 text-blue-800 font-bold text-xs px-3 py-2 rounded-xl">تعديل</button>
+              <button type="button" onclick="handleDeleteClick('${p.id}')" class="${isConfirming ? 'bg-red-600 text-white animate-pulse' : 'bg-red-100 hover:bg-red-200 text-red-700'} font-bold text-xs px-3 py-2 rounded-xl transition">
+                ${isConfirming ? 'تأكيد الحذف؟' : 'حذف'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function exportUpdatedHTML() {
+      const fullDoc = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const updatedBlock = `// EMBEDDED_PRODUCTS_START\n    const DEFAULT_PRODUCTS = ${JSON.stringify(products, null, 2)};\n    // EMBEDDED_PRODUCTS_END`;
+      const newDoc = fullDoc.replace(/\/\/ EMBEDDED_PRODUCTS_START[\s\S]*?\/\/ EMBEDDED_PRODUCTS_END/, updatedBlock);
+      
+      const blob = new Blob([newDoc], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'index.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('تم تحميل ملف index.html المحدث! ارفعيه على الاستضافة ليظهر للجميع', '💾');
+    }
+
+    // Initialize App
+    renderProducts();
+    updateCartUI();
+    if (window.lucide) lucide.createIcons();
+  </script>
+</body>
+</html>
